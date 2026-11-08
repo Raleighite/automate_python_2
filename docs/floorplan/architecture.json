@@ -1,0 +1,170 @@
+{
+  "$schema": "floorplan/architecture@1",
+  "audience": "everyone",
+  "project": {
+    "name": "Python control-flow exercises",
+    "summary": "Standalone terminal lessons in loops, functions, random choices and branching. Scripts share language concepts, not a runtime database, web API or shared application state."
+  },
+  "include": [
+    "code",
+    "config"
+  ],
+  "nodes": [
+    {
+      "id": "loops",
+      "label": "Prompt and exit loops",
+      "summary": "Name and classroom-password loops illustrate continue, break and process exit.",
+      "paths": [
+        "exitExample.py",
+        "swordfish.py",
+        "yourName.py",
+        "yourName2.py"
+      ],
+      "kind": "service"
+    },
+    {
+      "id": "games",
+      "label": "Random choices and games",
+      "summary": "Exercises choose random numbers, return fortunes and maintain a rock-paper-scissors score in memory.",
+      "paths": [
+        "guessTheNumber.py",
+        "magic8Ball.py",
+        "printRandom.py",
+        "rpsGame.py"
+      ],
+      "kind": "service"
+    },
+    {
+      "id": "functions",
+      "label": "Functions and repetition",
+      "summary": "Simple greetings demonstrate function calls and arguments; a while loop prints five numbered lines.",
+      "paths": [
+        "fiveTimes.py",
+        "helloFunc.py",
+        "helloFunc2.py"
+      ],
+      "kind": "service"
+    },
+    {
+      "id": "branches",
+      "label": "Ordered branch examples",
+      "summary": "Two fixed name/age examples demonstrate how the first matching if/elif branch wins.",
+      "paths": [
+        "vampire.py",
+        "vampire2.py"
+      ],
+      "kind": "service"
+    },
+    {
+      "id": "terminal",
+      "label": "Terminal interaction",
+      "summary": "The learner starts each script separately and supplies input or reads output.",
+      "paths": [],
+      "kind": "external"
+    }
+  ],
+  "edges": [
+    {
+      "from": "terminal",
+      "to": "loops",
+      "label": "Answer a prompt",
+      "description": "Each loop applies its own exact-string condition or exit command.",
+      "kind": "data"
+    },
+    {
+      "from": "loops",
+      "to": "terminal",
+      "label": "Repeat or finish",
+      "description": "The selected example prints acknowledgement, echoes input or terminates.",
+      "kind": "data"
+    },
+    {
+      "from": "terminal",
+      "to": "games",
+      "label": "Choose a guess or move",
+      "description": "Number guessing converts input to an integer; rock-paper-scissors validates its move letters.",
+      "kind": "data"
+    },
+    {
+      "from": "games",
+      "to": "terminal",
+      "label": "Print feedback and score",
+      "description": "Games print outcomes; only rock-paper-scissors repeats with cumulative in-memory counters.",
+      "kind": "data"
+    },
+    {
+      "from": "functions",
+      "to": "terminal",
+      "label": "Print greeting examples",
+      "description": "These examples require no terminal input.",
+      "kind": "data"
+    },
+    {
+      "from": "branches",
+      "to": "terminal",
+      "label": "Show the first matching branch",
+      "description": "Fixed sample data drives the conditional demonstration.",
+      "kind": "data"
+    }
+  ],
+  "flows": [
+    {
+      "id": "rps",
+      "title": "Play repeated rock-paper-scissors rounds",
+      "steps": [
+        {
+          "node": "terminal",
+          "note": "Start rpsGame.py and enter rock, paper or scissors using the prompted letter, or quit."
+        },
+        {
+          "node": "games",
+          "note": "Lowercase and validate the input, select a random computer move, compare moves and increment wins, losses or ties."
+        },
+        {
+          "node": "terminal",
+          "note": "Read the outcome and updated counters at the next round. Quit exits the process; scores are not saved."
+        }
+      ]
+    },
+    {
+      "id": "guess",
+      "title": "Try the six-guess number game",
+      "steps": [
+        {
+          "node": "terminal",
+          "note": "Start guessTheNumber.py and enter an integer guess."
+        },
+        {
+          "node": "games",
+          "note": "Compare with a random number from one through twenty; print high/low hints and stop on a match or after six attempts."
+        },
+        {
+          "node": "terminal",
+          "note": "Read the success count or the revealed number; noninteger input is not caught."
+        }
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "node": "loops",
+      "title": "These are separate entrypoints",
+      "note": "There is no main application dispatcher. yourName.py uses a loop condition; yourName2.py uses an explicit break."
+    },
+    {
+      "node": "games",
+      "title": "Randomness and state are local",
+      "note": "The guessing target and rock-paper-scissors counters exist only in the chosen script process."
+    },
+    {
+      "node": "functions",
+      "title": "Arguments change a greeting",
+      "note": "helloFunc.py repeats a no-argument greeting three times; helloFunc2.py calls a parameterized greeting for two sample names."
+    },
+    {
+      "node": "branches",
+      "title": "Order matters more than the story",
+      "note": "Each branch example uses fixed sample data. The first matching condition prevents later conditions from being considered."
+    }
+  ]
+}

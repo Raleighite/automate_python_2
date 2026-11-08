@@ -1,0 +1,57 @@
+{
+  "files": {
+    "exitExample.py": {
+      "name": "Echo-until-exit loop",
+      "description": "Prompts repeatedly, exits the process on the exact exit command and otherwise echoes the entered text."
+    },
+    "fiveTimes.py": {
+      "name": "Five-iteration while loop",
+      "description": "Prints a heading and five numbered name lines while incrementing a loop counter."
+    },
+    "guessTheNumber.py": {
+      "name": "Six-guess number game",
+      "description": "Selects one random integer from one through twenty and allows six integer guesses with high/low hints, then reports success or the target."
+    },
+    "helloFunc.py": {
+      "name": "Repeated greeting function",
+      "description": "Defines a no-argument greeting with three print calls and invokes that function three times."
+    },
+    "helloFunc2.py": {
+      "name": "Greeting with a name parameter",
+      "description": "Defines a greeting function that uses its argument and calls it for two embedded sample names."
+    },
+    "magic8Ball.py": {
+      "name": "Branch-based random fortune",
+      "description": "Maps integers one through nine to response strings, picks a random integer and prints the returned fortune."
+    },
+    "printRandom.py": {
+      "name": "Five random integers",
+      "description": "Prints five independently selected random integers between one and ten."
+    },
+    "rpsGame.py": {
+      "name": "Rock-paper-scissors loop",
+      "description": "Validates a lowercased move or quit command, randomly chooses the computer move and accumulates wins, losses and ties until process exit."
+    },
+    "swordfish.py": {
+      "name": "Classroom identity gate",
+      "description": "Repeats identity and fixed-password prompts with continue and break; the acknowledgement is a teaching example, not a secure login."
+    },
+    "vampire.py": {
+      "name": "Ordered name and age branches",
+      "description": "Uses fixed name and age sample values to show that the first matching condition prevents later age branches from running."
+    },
+    "vampire2.py": {
+      "name": "Short if-elif-else example",
+      "description": "Uses another fixed name/age pair to select one of three ordered greeting messages."
+    },
+    "yourName.py": {
+      "name": "Condition-controlled name prompt",
+      "description": "Repeats while the current name differs from a fixed demonstration phrase, then prints thanks."
+    },
+    "yourName2.py": {
+      "name": "Break-controlled name prompt",
+      "description": "Runs an unconditional loop and breaks only when input matches its fixed demonstration phrase."
+    }
+  },
+  "routes": {}
+}
